@@ -18,7 +18,7 @@ while True:
     Rgb = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
         
     #Görüntüyü ayna görüntüsünden yansıtara karşılıklı hale getirir
-    image = cv.flip(image,1)
+    image = cv.flip(frame,1)
     image.flags.writeable = False
 
     # Görüntüden eli yakalayarak referans noktalarının kordinatlarını liste şeklinde result değişkenine aktarır
@@ -27,4 +27,19 @@ while True:
 
     # Görüntüyü tekrar BGR formatına döndürür
     image = cv.cvtColor(image, cv.COLOR_RGB2BGR)    
-    
+
+    if results.multi_hand_landmarks:
+        for id, hand in enumerate(results.multi_hand_landmarks):
+            mp_drawing.draw_landmarks(image, hand, mp_hands.HAND_CONNECTIONS,
+                            mp_drawing.DrawingSpec(color=(255,0,0), thickness=2, circle_radius=4),
+                            mp_drawing.DrawingSpec(color=(0,0,250), thickness=2, circle_radius=2),
+                            )
+        # DrawingSpec ---> (color=BGR, daire kalınlığı/çizgi kalınlığı, daire çapı/none)
+
+    cv.imshow("cam", image)
+
+    if cv.waitKey(1) == ord("q"):
+        break
+
+cap.release()
+cv.destroyAllWindows()
