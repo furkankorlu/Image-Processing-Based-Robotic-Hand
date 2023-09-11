@@ -1,11 +1,10 @@
-# <font color="azure"><div align="center"><p>**Image Processing Based Robotic Hand**</p> </div></font>
+# <div align="center"><p>**Image Processing Based Robotic Hand**</p> </div>
 
-- The software of the project we developed for the "Teknofest Competition" consist of two base sections.
+The software of the project we developed for the "Teknofest Competition" consist of two base sections.
 
 ## <font color="Red">**Image Processing:**</font>
  
 - It is aimed to imitate in the prototype by taking the angle between the joints of the hand detected in the image taken from the camera. 
-
 
 |<font color="White">**Package**</font>|<font color="White">**Version**</font>|
 | :---------|:-----:|
@@ -34,11 +33,11 @@
 
 > **[** Thumb , Index finger , Middle finger , Ring finger , Little finger **]**
 
-- Sending the created list by averaging it every 5 times, in this way allows the prototype to avoid rapid and sudden changes and to act in real time.
+Sending the created list by averaging it every 5 times, in this way allows the prototype to avoid rapid and sudden changes and to act in real time.
 
-# <font color="azure"><div align="center"><p>**Görüntü İşleme Tabanlı Robotik El**</p> </div></font>
+# <div align="center"><p>**Görüntü İşleme Tabanlı Robotik El**</p> </div>
 
-- Teknofest yarışması için geliştirdiğimiz projenin yazılımı 2 temel kısımdan oluşuyor.
+Teknofest yarışması için geliştirdiğimiz projenin yazılımı 2 temel kısımdan oluşuyor.
 
 ## <font color="Red">**Görüntü İşleme:**</font>
 
@@ -71,4 +70,4 @@
 
 >**[** Baş , İşaret , Orta , Yüzük , Serçe **]**
 
-- Oluşturulan listenin her 5 defada bir ortalaması alınarak bu şekilde gönderilmesi prototipin hızlı ve ani değişimlerden kaçınmasını ve gerçek zamanlı hareket etmesini sağlar.
+Oluşturulan listenin her 5 defada bir ortalaması alınarak bu şekilde gönderilmesi prototipin hızlı ve ani değişimlerden kaçınmasını ve gerçek zamanlı hareket etmesini sağlar.
