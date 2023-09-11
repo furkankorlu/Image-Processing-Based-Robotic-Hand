@@ -36,6 +36,19 @@ def finger_angles(image, results, joint_list):
             
             if angle > 180.0:
                 angle = 360-angle
+
+            # 5 değeri ---> 0-30 derece --> Kapalı
+            # 4 değeri ---> 30-60 derece
+            # 3 değeri ---> 60-90 derece
+            # 2 değeri ---> 90-120 derece
+            # 1 değeri ---> 120-150 derece
+            # 0 değeri ---> 150-180 derece --> Açık
+
+            
+            # Liste parmak sıralaması:
+            # [ Baş , İşaret , Orta , Yüzük , Serçe]
+            
+                
 while True:
     ret, frame = cap.read()
 
