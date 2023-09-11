@@ -11,18 +11,27 @@ mp_drawing = mp.solutions.drawing_utils
 mp_hands = mp.solutions.hands
 hands = mp_hands.Hands()
 
+# List
+serial= []
+son_list= [0,0,0,0,0]
+total_list= [0,0,0,0,0]
+joint_list = [[4,3,2,1,0],[8,7,6,5],[12,11,10,9],[16,15,14,13],[20,19,18,17]]
+
+# Variables
+s = 0
+
 while True:
     ret, frame = cap.read()
 
     # Alınan görüntüyü Mediapipe'ın işlemesi için rgb ye çevirir
-    Rgb = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
+    image = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
         
     #Görüntüyü ayna görüntüsünden yansıtara karşılıklı hale getirir
-    image = cv.flip(frame,1)
+    image = cv.flip(image,1)
     image.flags.writeable = False
 
     # Görüntüden eli yakalayarak referans noktalarının kordinatlarını liste şeklinde result değişkenine aktarır
-    results = hands.process(Rgb)
+    results = hands.process(image)
     image.flags.writeable = True
 
     # Görüntüyü tekrar BGR formatına döndürür
