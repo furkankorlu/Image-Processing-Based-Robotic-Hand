@@ -82,8 +82,8 @@ def finger_angles(image, results, joint_list):
                 elif 150 < angle <= 180:
                     serial.append(0)
 
-                cv.putText(image, str(round(angle, 2)), tuple(np.multiply(b, [640, 480]).astype(int)),
-                       cv.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255), 2, cv.LINE_AA)
+            cv.putText(image, str(round(angle, 2)), tuple(np.multiply(b, [640, 480]).astype(int)),
+                    cv.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255), 2, cv.LINE_AA)
             
     return serial
 
@@ -111,7 +111,8 @@ while True:
                             mp_drawing.DrawingSpec(color=(0,0,250), thickness=2, circle_radius=2),
                             )
         # DrawingSpec ---> (color=BGR, daire kalınlığı/çizgi kalınlığı, daire çapı/none)
-
+        finger_angles(image, results, joint_list)
+        # print(serial)
     cv.imshow("cam", image)
 
     if cv.waitKey(1) == ord("q"):
