@@ -31,6 +31,11 @@ def finger_angles(image, results, joint_list):
             c = np.array([hand.landmark[joint[2]].x, hand.landmark[joint[2]].y]) # en alt
             d = np.array([hand.landmark[joint[3]].x, hand.landmark[joint[3]].y]) # avuc boğum
 
+            radians = np.arctan2(c[1] - b[1], c[0]-b[0]) - np.arctan2(a[1]-b[1], a[0]-b[0])
+            angle = np.abs(radians*180.0/np.pi)
+            
+            if angle > 180.0:
+                angle = 360-angle
 while True:
     ret, frame = cap.read()
 
