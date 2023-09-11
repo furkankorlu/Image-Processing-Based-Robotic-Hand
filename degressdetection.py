@@ -47,8 +47,25 @@ def finger_angles(image, results, joint_list):
             
             # Liste parmak sıralaması:
             # [ Baş , İşaret , Orta , Yüzük , Serçe]
-            
-                
+
+            # Baş Parmak - Kapalı
+            if joint == joint_list[0]:
+                if hand.landmark[joint[4]].x < d[0]:
+                    if a[0] < c[0]:
+                        serial.append(5)
+                        angle = 0
+
+                elif hand.landmark[joint[4]].x > d[0]:
+                    if a[0] > c[0]:
+                        serial.append(5)
+                        angle = 0
+
+            # Diğer parmaklar - Kapalı
+            if joint != joint_list[0]:
+                    if d[1] < a[1]:
+                        serial.append(5)
+                        angle = 0
+
 while True:
     ret, frame = cap.read()
 
