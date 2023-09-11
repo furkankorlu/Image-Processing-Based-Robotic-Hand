@@ -66,6 +66,22 @@ def finger_angles(image, results, joint_list):
                         serial.append(5)
                         angle = 0
 
+            # Açıların aralığına göre listeye eklenmesi
+            if angle != 0:
+                
+                if 0 <= angle <=30:
+                    serial.append(5)
+                elif 30 < angle <=60:
+                    serial.append(4)
+                elif 60 < angle <= 90:
+                    serial.append(3)
+                elif 90 < angle <= 120:
+                    serial.append(2)
+                elif 120 < angle <= 150:
+                    serial.append(1)
+                elif 150 < angle <= 180:
+                    serial.append(0)
+
 while True:
     ret, frame = cap.read()
 
