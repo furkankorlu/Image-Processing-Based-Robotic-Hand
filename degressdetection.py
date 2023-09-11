@@ -21,7 +21,15 @@ joint_list = [[4,3,2,1,0],[8,7,6,5],[12,11,10,9],[16,15,14,13],[20,19,18,17]]
 s = 0
 
 def finger_angles(image, results, joint_list):
-    pass
+    for hand in results.multi_hand_landmarks:
+        
+        serial.clear()
+
+        for joint in joint_list:            
+            a = np.array([hand.landmark[joint[0]].x, hand.landmark[joint[0]].y]) # üst
+            b = np.array([hand.landmark[joint[1]].x, hand.landmark[joint[1]].y]) # orta
+            c = np.array([hand.landmark[joint[2]].x, hand.landmark[joint[2]].y]) # en alt
+            d = np.array([hand.landmark[joint[3]].x, hand.landmark[joint[3]].y]) # avuc boğum
 
 while True:
     ret, frame = cap.read()
