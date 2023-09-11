@@ -20,6 +20,9 @@ joint_list = [[4,3,2,1,0],[8,7,6,5],[12,11,10,9],[16,15,14,13],[20,19,18,17]]
 # Variables
 s = 0
 
+def finger_angles(image, results, joint_list):
+    pass
+
 while True:
     ret, frame = cap.read()
 
