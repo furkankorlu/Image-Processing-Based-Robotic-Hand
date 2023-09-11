@@ -82,6 +82,11 @@ def finger_angles(image, results, joint_list):
                 elif 150 < angle <= 180:
                     serial.append(0)
 
+                cv.putText(image, str(round(angle, 2)), tuple(np.multiply(b, [640, 480]).astype(int)),
+                       cv.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255), 2, cv.LINE_AA)
+            
+    return serial
+
 while True:
     ret, frame = cap.read()
 
