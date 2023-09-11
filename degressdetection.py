@@ -6,6 +6,9 @@ from cvzone.SerialModule import SerialObject
 # OpenCv Webcam Kaynagı
 cap = cv.VideoCapture(0)
 
+# Arduino Connect
+Arduino = SerialObject("COM7")
+
 # Mediapipe Classları
 mp_drawing = mp.solutions.drawing_utils
 mp_hands = mp.solutions.hands
@@ -113,6 +116,21 @@ while True:
         # DrawingSpec ---> (color=BGR, daire kalınlığı/çizgi kalınlığı, daire çapı/none)
         finger_angles(image, results, joint_list)
         # print(serial)
+
+    if len(serial)==5:
+        s+=1
+        for i in range(len(serial)):
+            total_list[i]=(serial[i] + total_list[i])
+
+              
+    if s!=0 and s%5==0:
+            print("s=",int(s/5))
+            for i in range(len(total_list)):
+                son_list[i]=(int(total_list[i]/5))
+            print("Son list",son_list)
+            total_list = [0,0,0,0,0]
+            Arduino.sendData(son_list)  
+              
     cv.imshow("cam", image)
 
     if cv.waitKey(1) == ord("q"):
